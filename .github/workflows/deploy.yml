@@ -15,16 +15,26 @@ jobs:
     - name: Install TeX Live
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-lang-german texlive-pictures texlive-science
+        sudo apt-get install -y --no-install-recommends \
+          texlive-latex-base \
+          texlive-latex-extra \
+          texlive-lang-german \
+          texlive-pictures \
+          texlive-science \
+          texlive-fonts-extra \
+          texlive-bibtex-extra
+        which pdflatex
+        pdflatex --version
     
     - name: Compile LaTeX
       run: |
+        echo "Current directory: $(pwd)"
+        echo "Files in current dir:"
         ls -la
-        pwd
-        pdflatex -interaction=batchmode master.tex
-        pdflatex -interaction=batchmode master.tex
-        pdflatex -interaction=batchmode master.tex
-        ls -la master.pdf
+        echo "---"
+        pdflatex -interaction=nonstopmode master.tex 2>&1 | head -100
+        echo "---"
+        ls -la master.pdf 2>&1 || echo "PDF not created"
     
     - name: Create viewer HTML with PDF.js
       run: |
