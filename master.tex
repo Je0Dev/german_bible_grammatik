@@ -83,6 +83,15 @@
 \newcommand{\chapterend}{\vfill\pagebreak}
 \makeatother
 
+% Solution environment
+\makeatletter
+\newenvironment{loesung}{%
+  \par\bigskip
+  \textbf{Lösung:}\par
+  \begin{enumerate}%
+}{\end{enumerate}}
+\makeatother
+
 % Fancyhdr with GitHub link
 \pagestyle{fancy}
 \fancyhf{}
@@ -186,6 +195,8 @@ Dieses umfassende Grammatikwerk bietet eine vollständige Referenz von A1 bis C1
 \input{tex/input/grammatik/c2/01_c2_grammatik}
 \input{tex/input/grammatik/business/01_business}
 \input{tex/input/grammatik/sonstiges/idiome/01_idiome}
+\input{tex/input/grammatik/sonstiges/06_phrasal}
+\input{tex/input/grammatik/sonstiges/07_tests}
 
 \part{\color{c1color}\textbf{Anhang und Referenz}}
 \pdfbookmark[0]{Teil IV: Anhang}{part4}
