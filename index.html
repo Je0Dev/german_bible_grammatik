@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsche Grammatik - Kompendium A1-C2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
+    <style>
+        :root { --bg: #ffffff; --bg2: #fafafa; --bg3: #f4f4f4; --text: #1a1a1a; --text2: #525252; --muted: #767676; --accent: #b91c1c; --border: #e5e5e5; --width: 280px; --header: 60px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
+        header { height: var(--header); background: var(--bg); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .logo { font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 14px; }
+        .breadcrumb { font-size: 13px; color: var(--muted); }
+        .breadcrumb span { color: var(--text2); }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .btn { background: var(--accent); color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; }
+        .btn:hover { background: #991b1b; }
+        .container { display: flex; margin-top: var(--header); height: calc(100vh - var(--header)); }
+        aside { width: var(--width); background: var(--bg2); border-right: 1px solid var(--border); overflow-y: auto; padding: 24px 0; }
+        .nav-section { margin-bottom: 24px; }
+        .nav-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 0 24px; margin-bottom: 8px; }
+        .nav-list { list-style: none; }
+        .nav-item { padding: 8px 24px; font-size: 14px; color: var(--text2); cursor: pointer; transition: 0.15s; border-left: 2px solid transparent; }
+        .nav-item:hover { background: var(--bg3); color: var(--text); }
+        .nav-item.active { background: #fef2f2; color: var(--accent); border-left-color: var(--accent); font-weight: 500; }
+        main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .toolbar { padding: 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; gap: 16px; background: var(--bg); }
+        .page-btn { background: var(--bg3); border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; color: var(--text2); }
+        .page-btn:hover:not(:disabled) { background: var(--border); }
+        .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .page-info { font-size: 14px; color: var(--muted); min-width: 100px; text-align: center; }
+        .page-num { width: 40px; padding: 6px; text-align: center; border: 1px solid var(--border); border-radius: 4px; }
+        #viewer { flex: 1; overflow: auto; display: flex; justify-content: center; padding: 24px; background: var(--bg3); }
+        #pdf-canvas { box-shadow: 0 4px 20px rgba(0,0,0,0.1); background: #fff; }
+        #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--muted); }
+        @media (max-width: 768px) { aside { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo"><div class="logo-icon">DG</div><span>Deutsche Grammatik</span></a>
+            <span class="breadcrumb">/ <span>A1-C2 Kompendium</span></span>
+        </div>
+        <div class="header-right"><a href="master.pdf" class="btn" download>PDF</a></div>
+    </header>
+    <div class="container">
+        <aside>
+            <div class="nav-section"><div class="nav-title">Einfuehrung</div><ul class="nav-list"><li class="nav-item" onclick="go(1)">Titelseite</li><li class="nav-item" onclick="go(3)">Inhaltsverzeichnis</li><li class="nav-item" onclick="go(5)">Einleitung</li></ul></div>
+            <div class="nav-section"><div class="nav-title">Grammatik</div><ul class="nav-list"><li class="nav-item" onclick="go(7)">A1-A2</li><li class="nav-item" onclick="go(25)">B1</li><li class="nav-item" onclick="go(35)">B2</li><li class="nav-item" onclick="go(45)">C1</li><li class="nav-item" onclick="go(55)">C2</li></ul></div>
+            <div class="nav-section"><div class="nav-title">Themen</div><ul class="nav-list"><li class="nav-item" onclick="go(65)">Nomen</li><li class="nav-item" onclick="go(75)">Verben</li><li class="nav-item" onclick="go(95)">Satzbau</li><li class="nav-item" onclick="go(105)">Praepositionen</li><li class="nav-item" onclick="go(115)">Adjektive</li></ul></div>
+            <div class="nav-section"><div class="nav-title">Spezial</div><ul class="nav-list"><li class="nav-item" onclick="go(125)">Business</li><li class="nav-item" onclick="go(145)">Idiome</li><li class="nav-item" onclick="go(155)">Phrasal Verbs</li><li class="nav-item" onclick="go(165)">False Friends</li><li class="nav-item" onclick="go(170)">Tests</li></ul></div>
+            <div class="nav-section"><div class="nav-title">Referenz</div><ul class="nav-list"><li class="nav-item" onclick="go(175)">Index</li></ul></div>
+        </aside>
+        <main>
+            <div class="toolbar"><button class="page-btn" onclick="prev()" id="prevBtn">Prev</button><span class="page-info"><input type="number" class="page-num" id="pageNum" value="1" min="1"> / <span id="total">--</span></span><button class="page-btn" onclick="next()" id="nextBtn">Next</button></div>
+            <div id="viewer"><div id="loading">Lade PDF...</div><canvas id="pdf-canvas"></canvas></div>
+        </main>
+    </div>
+    <script>
+        var pdf = null, cur = 1;
+        var canvas = document.getElementById('pdf-canvas'), ctx = canvas.getContext('2d');
+        pdfjsLib.getDocument('master.pdf').then(function(d) { pdf = d; document.getElementById('total').textContent = d.numPages; document.getElementById('loading').style.display = 'none'; render(cur); });
+        function render(n) { pdf.getPage(n).then(function(page) { var scale = innerWidth > 1200 ? 1.8 : innerWidth > 800 ? 1.4 : 1.0; var v = page.getViewport({scale: scale}); canvas.height = v.height; canvas.width = v.width; page.render({canvasContext: ctx, viewport: v}).promise.then(function() { cur = n; document.getElementById('pageNum').value = n; document.getElementById('prevBtn').disabled = n <= 1; document.getElementById('nextBtn').disabled = n >= pdf.numPages; }); }); }
+        function prev() { if (cur > 1) go(cur - 1); }
+        function next() { if (cur < pdf.numPages) go(cur + 1); }
+        function go(n) { if (n >= 1 && n <= pdf.numPages) render(n); }
+        document.getElementById('pageNum').addEventListener('change', function(e) { var p = parseInt(e.target.value); if (p >= 1 && p <= pdf.numPages) go(p); else e.target.value = cur; });
+        document.addEventListener('keydown', function(e) { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
+        window.addEventListener('resize', function() { if (pdf) render(cur); });
+    </script>
+</body>
+</html>
