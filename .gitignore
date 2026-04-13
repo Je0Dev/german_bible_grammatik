@@ -5,3 +5,5 @@
 *.nav
 *.snm
 .DS_Store
+index.html
+*.pdf

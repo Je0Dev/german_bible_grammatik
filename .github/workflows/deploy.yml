@@ -1,0 +1,179 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-lang-german
+    
+    - name: Compile LaTeX
+      run: |
+        cd grammatik_book
+        pdflatex -interaction=nonstopmode master.tex
+        pdflatex -interaction=nonstopmode master.tex
+    
+    - name: Create index.html
+      run: |
+        cat > grammatik_book/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="de">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Deutsche Grammatik A1-C2 - Kompendium</title>
+            <style>
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background: #f5f5f5;
+                }
+                .header {
+                    background: linear-gradient(135deg, #003366, #006699);
+                    color: white;
+                    padding: 40px;
+                    border-radius: 10px;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                h1 { margin: 0; font-size: 2.5em; }
+                .subtitle { font-size: 1.2em; opacity: 0.9; }
+                .description {
+                    background: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                }
+                .download-btn {
+                    display: inline-block;
+                    background: #cc3333;
+                    color: white;
+                    padding: 15px 30px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    font-size: 1.2em;
+                    margin: 10px;
+                }
+                .download-btn:hover { background: #aa2222; }
+                .info-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 15px;
+                    margin-top: 20px;
+                }
+                .info-box {
+                    background: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                    text-align: center;
+                }
+                .info-box h3 { color: #003366; margin: 0 0 10px 0; }
+                .footer {
+                    text-align: center;
+                    margin-top: 30px;
+                    color: #666;
+                }
+                a { color: #006699; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>📘 Deutsche Grammatik</h1>
+                <p class="subtitle">Umfassendes Grammatik-Kompendium von A1 bis C2</p>
+            </div>
+            
+            <div class="description">
+                <h2>Willkommen zur Deutschen Grammatik Referenz</h2>
+                <p>Dieses umfassende Grammatikwerk bietet eine vollständige Referenz von A1 bis C2-Niveau basierend auf folgenden Werken:</p>
+                <ul>
+                    <li><strong>Grammatik aktiv B1+/B2/C1</strong> - Jin/Voß - Cornelsen</li>
+                    <li><strong>Lehr- und Übungsbuch der deutschen Grammatik</strong> - Dreyer/Schmitt</li>
+                    <li><strong>B-Grammatik</strong> - Buscha/Szita - Klett</li>
+                    <li><strong>Lingolia</strong> - deutsch.lingolia.com/de/grammatik</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="master.pdf" class="download-btn">📥 PDF Herunterladen</a>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>📄 Umfang</h3>
+                    <p>171 Seiten</p>
+                </div>
+                <div class="info-box">
+                    <h3>📅 Version</h3>
+                    <p>April 2026</p>
+                </div>
+                <div class="info-box">
+                    <h3>👤 Autor</h3>
+                    <p>George Mastro</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌐 GitHub</h3>
+                    <p><a href="https://github.com/Je0Dev/german_bible_grammatik">github.com/Je0Dev</a></p>
+                </div>
+            </div>
+            
+            <div class="description" style="margin-top: 30px;">
+                <h3>Inhaltsübersicht</h3>
+                <ul>
+                    <li><strong>A1-A2:</strong> Grundlagen, Präsens, Perfekt, Artikel, Plural</li>
+                    <li><strong>B1:</strong> Mittelstufe, Konjunktiv II, Relativsätze</li>
+                    <li><strong>B2-C1:</strong> Fortgeschritten, Konjunktiv I, Passiv, Nominalstil</li>
+                    <li><strong>C2:</strong> Spezialthemen, stilistische Feinheiten</li>
+                    <li><strong>Business:</strong> Geschäftskommunikation, Bewerbung</li>
+                    <li><strong>Academic:</strong> Wissenschaftssprache, Präsentationen</li>
+                    <li><strong>Idiome:</strong> Redewendungen, falsche Freunde</li>
+                    <li><strong>Phrasal Verbs:</strong> Partikelverben</li>
+                    <li><strong>Tests:</strong> Selbsttests A1-C2 mit Lösungen</li>
+                    <li><strong>Index:</strong> Stichwortverzeichnis & Glossar</li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                <p>© 2026 George Mastro - Alle Rechte vorbehalten</p>
+                <p>Quellen: Grammatik aktiv, B-Grammatik, Lehr- und Übungsbuch, Lingolia</p>
+            </div>
+        </body>
+        </html>
+        EOF
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: site
+        path: grammatik_book/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: site
+        path: .
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .

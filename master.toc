@@ -263,74 +263,78 @@
 \contentsline {section}{\numberline {41.3}Verben mit Dativ und Akkusativ}{120}{section.41.3}%
 \contentsline {section}{\numberline {41.4}Falsche Freunde - Quick Reference}{120}{section.41.4}%
 \contentsline {section}{\numberline {41.5}Checklisten für Grammatik}{120}{section.41.5}%
-\contentsline {part}{V\hspace {1em}\color {c1color}\textbf {Anhang und Referenz}}{123}{part.5}%
-\contentsline {chapter}{\numberline {42}Anhang: Konjugationstabellen}{125}{chapter.42}%
-\contentsline {section}{\numberline {42.1}Verbkonjugation: Präsens}{125}{section.42.1}%
-\contentsline {subsection}{\numberline {42.1.1}schwache Verben (regelmäßig)}{125}{subsection.42.1.1}%
-\contentsline {subsection}{\numberline {42.1.2}starke Verben (unregelmäßig)}{125}{subsection.42.1.2}%
-\contentsline {subsection}{\numberline {42.1.3}haben}{125}{subsection.42.1.3}%
-\contentsline {subsection}{\numberline {42.1.4}sein}{126}{subsection.42.1.4}%
-\contentsline {subsection}{\numberline {42.1.5}werden}{126}{subsection.42.1.5}%
-\contentsline {section}{\numberline {42.2}Verbkonjugation: Präteritum}{126}{section.42.2}%
-\contentsline {subsection}{\numberline {42.2.1}schwache Verben}{126}{subsection.42.2.1}%
-\contentsline {subsection}{\numberline {42.2.2}starke Verben}{126}{subsection.42.2.2}%
-\contentsline {section}{\numberline {42.3}Modalverben: Präsens}{126}{section.42.3}%
-\contentsline {section}{\numberline {42.4}Modalverben: Präteritum}{127}{section.42.4}%
-\contentsline {section}{\numberline {42.5}Modalverben: Konjunktiv II}{127}{section.42.5}%
-\contentsline {section}{\numberline {42.6}Perfekt: Hilfsverben}{127}{section.42.6}%
-\contentsline {section}{\numberline {42.7}Konjunktiv I: sein}{127}{section.42.7}%
-\contentsline {section}{\numberline {42.8}Konjunktiv I: haben}{128}{section.42.8}%
-\contentsline {section}{\numberline {42.9}Konjunktiv I: werden}{128}{section.42.9}%
-\contentsline {section}{\numberline {42.10}Konjunktiv II: wäre}{128}{section.42.10}%
-\contentsline {section}{\numberline {42.11}Konjunktiv II: hätte}{128}{section.42.11}%
-\contentsline {section}{\numberline {42.12} Imperativ}{128}{section.42.12}%
-\contentsline {section}{\numberline {42.13}Trennbare Verben: Präsens}{129}{section.42.13}%
-\contentsline {section}{\numberline {42.14}Untrennbare Verben: Präsens}{129}{section.42.14}%
-\contentsline {section}{\numberline {42.15}Wichtige unregelmäßige Verben}{130}{section.42.15}%
-\contentsline {section}{\numberline {42.16}Artikel-Deklination}{131}{section.42.16}%
-\contentsline {subsection}{\numberline {42.16.1}Bestimmt}{131}{subsection.42.16.1}%
-\contentsline {subsection}{\numberline {42.16.2}Unbestimmt}{131}{subsection.42.16.2}%
-\contentsline {section}{\numberline {42.17}Adjektiv-Deklination}{131}{section.42.17}%
-\contentsline {subsection}{\numberline {42.17.1}Mit bestimmtem Artikel}{131}{subsection.42.17.1}%
-\contentsline {subsection}{\numberline {42.17.2}Mit unbestimmtem Artikel}{131}{subsection.42.17.2}%
-\contentsline {section}{\numberline {42.18}Relativpronomen (Anhang)}{131}{section.42.18}%
-\contentsline {section}{\numberline {42.19}Fragepronomen}{132}{section.42.19}%
-\contentsline {section}{\numberline {42.20}Wechselpräpositionen}{132}{section.42.20}%
-\contentsline {section}{\numberline {42.21}Übersicht: Präpositionen nach Kasus}{132}{section.42.21}%
-\contentsline {subsection}{\numberline {42.21.1}Dativ-Präpositionen}{132}{subsection.42.21.1}%
-\contentsline {subsection}{\numberline {42.21.2}Akkusativ-Präpositionen}{132}{subsection.42.21.2}%
-\contentsline {subsection}{\numberline {42.21.3}Genitiv-Präpositionen}{133}{subsection.42.21.3}%
-\contentsline {section}{\numberline {42.22}Reflexive Verben mit Präpositionen (sich + Präposition)}{133}{section.42.22}%
-\contentsline {subsection}{\numberline {42.22.1}sich an... gewöhnen}{133}{subsection.42.22.1}%
-\contentsline {subsection}{\numberline {42.22.2}sich auf... freuen}{133}{subsection.42.22.2}%
-\contentsline {subsection}{\numberline {42.22.3}sich auf... vorbereiten}{133}{subsection.42.22.3}%
-\contentsline {subsection}{\numberline {42.22.4}sich über... ärgern}{133}{subsection.42.22.4}%
-\contentsline {subsection}{\numberline {42.22.5}sich über... informieren}{134}{subsection.42.22.5}%
-\contentsline {section}{\numberline {42.23}Nomen: Artikel und Plural}{134}{section.42.23}%
-\contentsline {subsection}{\numberline {42.23.1}Maskulin (der)}{134}{subsection.42.23.1}%
-\contentsline {subsection}{\numberline {42.23.2}Feminin (die)}{135}{subsection.42.23.2}%
-\contentsline {subsection}{\numberline {42.23.3}Neutral (das)}{135}{subsection.42.23.3}%
-\contentsline {section}{\numberline {42.24}Nützliche Sätze für Meinungen und Optionen}{135}{section.42.24}%
-\contentsline {subsection}{\numberline {42.24.1}Meinungen ausdrücken}{136}{subsection.42.24.1}%
-\contentsline {subsection}{\numberline {42.24.2}Optionen und Alternativen vorschlagen}{136}{subsection.42.24.2}%
-\contentsline {subsection}{\numberline {42.24.3}Zustimmen und Widersprechen}{136}{subsection.42.24.3}%
-\contentsline {section}{\numberline {42.25}Wichtige Wortverbindungen}{137}{section.42.25}%
-\contentsline {subsection}{\numberline {42.25.1}Nomen + Präposition}{137}{subsection.42.25.1}%
-\contentsline {subsection}{\numberline {42.25.2}Adjektiv + Präposition}{137}{subsection.42.25.2}%
-\contentsline {chapter}{\numberline {43}Useful Expressions: Opinions, Options, and Arguments}{139}{chapter.43}%
-\contentsline {section}{\numberline {43.1}Expressing Opinions - Meinungen äußern}{139}{section.43.1}%
-\contentsline {section}{\numberline {43.2}Agreeing - Zustimmen}{139}{section.43.2}%
-\contentsline {section}{\numberline {43.3}Disagreeing - Widersprechen}{140}{section.43.3}%
-\contentsline {section}{\numberline {43.4}Expressing Options - Optionen zeigen}{140}{section.43.4}%
-\contentsline {section}{\numberline {43.5}Reason and Cause - Begründung}{141}{section.43.5}%
-\contentsline {section}{\numberline {43.6}Contrast and Concession - Gegensatz}{141}{section.43.6}%
-\contentsline {section}{\numberline {43.7}Time Expressions - Zeitangaben}{142}{section.43.7}%
-\contentsline {section}{\numberline {43.8}Adding Information - Informationen hinzufügen}{142}{section.43.8}%
-\contentsline {section}{\numberline {43.9}Consequences and Results - Folgen und Ergebnisse}{143}{section.43.9}%
-\contentsline {section}{\numberline {43.10}Expressing Certainty/Uncertainty - Gewissheit/Unsicherheit}{143}{section.43.10}%
-\contentsline {chapter}{\numberline {44}Complete Noun Guide: der, die, das}{145}{chapter.44}%
-\contentsline {section}{\numberline {44.1}Maskulin - der (m)}{145}{section.44.1}%
-\contentsline {section}{\numberline {44.2}Feminin - die (f)}{146}{section.44.2}%
-\contentsline {section}{\numberline {44.3}Neutral - das (n)}{148}{section.44.3}%
-\contentsline {section}{\numberline {44.4}Important Irregular Plurals}{150}{section.44.4}%
+\contentsline {chapter}{\numberline {42}Stichwortverzeichnis (Index)}{123}{chapter.42}%
+\contentsline {chapter}{\numberline {43}Glossar: Grammatikbegriffe}{125}{chapter.43}%
+\contentsline {section}{\numberline {43.1}Deutsch-Englisch}{126}{section.43.1}%
+\contentsline {section}{\numberline {43.2}Begriffe erklärt}{127}{section.43.2}%
+\contentsline {part}{V\hspace {1em}\color {c1color}\textbf {Anhang und Referenz}}{129}{part.5}%
+\contentsline {chapter}{\numberline {44}Anhang: Konjugationstabellen}{131}{chapter.44}%
+\contentsline {section}{\numberline {44.1}Verbkonjugation: Präsens}{131}{section.44.1}%
+\contentsline {subsection}{\numberline {44.1.1}schwache Verben (regelmäßig)}{131}{subsection.44.1.1}%
+\contentsline {subsection}{\numberline {44.1.2}starke Verben (unregelmäßig)}{131}{subsection.44.1.2}%
+\contentsline {subsection}{\numberline {44.1.3}haben}{131}{subsection.44.1.3}%
+\contentsline {subsection}{\numberline {44.1.4}sein}{132}{subsection.44.1.4}%
+\contentsline {subsection}{\numberline {44.1.5}werden}{132}{subsection.44.1.5}%
+\contentsline {section}{\numberline {44.2}Verbkonjugation: Präteritum}{132}{section.44.2}%
+\contentsline {subsection}{\numberline {44.2.1}schwache Verben}{132}{subsection.44.2.1}%
+\contentsline {subsection}{\numberline {44.2.2}starke Verben}{132}{subsection.44.2.2}%
+\contentsline {section}{\numberline {44.3}Modalverben: Präsens}{132}{section.44.3}%
+\contentsline {section}{\numberline {44.4}Modalverben: Präteritum}{133}{section.44.4}%
+\contentsline {section}{\numberline {44.5}Modalverben: Konjunktiv II}{133}{section.44.5}%
+\contentsline {section}{\numberline {44.6}Perfekt: Hilfsverben}{133}{section.44.6}%
+\contentsline {section}{\numberline {44.7}Konjunktiv I: sein}{133}{section.44.7}%
+\contentsline {section}{\numberline {44.8}Konjunktiv I: haben}{134}{section.44.8}%
+\contentsline {section}{\numberline {44.9}Konjunktiv I: werden}{134}{section.44.9}%
+\contentsline {section}{\numberline {44.10}Konjunktiv II: wäre}{134}{section.44.10}%
+\contentsline {section}{\numberline {44.11}Konjunktiv II: hätte}{134}{section.44.11}%
+\contentsline {section}{\numberline {44.12} Imperativ}{134}{section.44.12}%
+\contentsline {section}{\numberline {44.13}Trennbare Verben: Präsens}{135}{section.44.13}%
+\contentsline {section}{\numberline {44.14}Untrennbare Verben: Präsens}{135}{section.44.14}%
+\contentsline {section}{\numberline {44.15}Wichtige unregelmäßige Verben}{136}{section.44.15}%
+\contentsline {section}{\numberline {44.16}Artikel-Deklination}{137}{section.44.16}%
+\contentsline {subsection}{\numberline {44.16.1}Bestimmt}{137}{subsection.44.16.1}%
+\contentsline {subsection}{\numberline {44.16.2}Unbestimmt}{137}{subsection.44.16.2}%
+\contentsline {section}{\numberline {44.17}Adjektiv-Deklination}{137}{section.44.17}%
+\contentsline {subsection}{\numberline {44.17.1}Mit bestimmtem Artikel}{137}{subsection.44.17.1}%
+\contentsline {subsection}{\numberline {44.17.2}Mit unbestimmtem Artikel}{137}{subsection.44.17.2}%
+\contentsline {section}{\numberline {44.18}Relativpronomen (Anhang)}{137}{section.44.18}%
+\contentsline {section}{\numberline {44.19}Fragepronomen}{138}{section.44.19}%
+\contentsline {section}{\numberline {44.20}Wechselpräpositionen}{138}{section.44.20}%
+\contentsline {section}{\numberline {44.21}Übersicht: Präpositionen nach Kasus}{138}{section.44.21}%
+\contentsline {subsection}{\numberline {44.21.1}Dativ-Präpositionen}{138}{subsection.44.21.1}%
+\contentsline {subsection}{\numberline {44.21.2}Akkusativ-Präpositionen}{138}{subsection.44.21.2}%
+\contentsline {subsection}{\numberline {44.21.3}Genitiv-Präpositionen}{139}{subsection.44.21.3}%
+\contentsline {section}{\numberline {44.22}Reflexive Verben mit Präpositionen (sich + Präposition)}{139}{section.44.22}%
+\contentsline {subsection}{\numberline {44.22.1}sich an... gewöhnen}{139}{subsection.44.22.1}%
+\contentsline {subsection}{\numberline {44.22.2}sich auf... freuen}{139}{subsection.44.22.2}%
+\contentsline {subsection}{\numberline {44.22.3}sich auf... vorbereiten}{139}{subsection.44.22.3}%
+\contentsline {subsection}{\numberline {44.22.4}sich über... ärgern}{139}{subsection.44.22.4}%
+\contentsline {subsection}{\numberline {44.22.5}sich über... informieren}{140}{subsection.44.22.5}%
+\contentsline {section}{\numberline {44.23}Nomen: Artikel und Plural}{140}{section.44.23}%
+\contentsline {subsection}{\numberline {44.23.1}Maskulin (der)}{140}{subsection.44.23.1}%
+\contentsline {subsection}{\numberline {44.23.2}Feminin (die)}{141}{subsection.44.23.2}%
+\contentsline {subsection}{\numberline {44.23.3}Neutral (das)}{141}{subsection.44.23.3}%
+\contentsline {section}{\numberline {44.24}Nützliche Sätze für Meinungen und Optionen}{141}{section.44.24}%
+\contentsline {subsection}{\numberline {44.24.1}Meinungen ausdrücken}{142}{subsection.44.24.1}%
+\contentsline {subsection}{\numberline {44.24.2}Optionen und Alternativen vorschlagen}{142}{subsection.44.24.2}%
+\contentsline {subsection}{\numberline {44.24.3}Zustimmen und Widersprechen}{142}{subsection.44.24.3}%
+\contentsline {section}{\numberline {44.25}Wichtige Wortverbindungen}{143}{section.44.25}%
+\contentsline {subsection}{\numberline {44.25.1}Nomen + Präposition}{143}{subsection.44.25.1}%
+\contentsline {subsection}{\numberline {44.25.2}Adjektiv + Präposition}{143}{subsection.44.25.2}%
+\contentsline {chapter}{\numberline {45}Useful Expressions: Opinions, Options, and Arguments}{145}{chapter.45}%
+\contentsline {section}{\numberline {45.1}Expressing Opinions - Meinungen äußern}{145}{section.45.1}%
+\contentsline {section}{\numberline {45.2}Agreeing - Zustimmen}{145}{section.45.2}%
+\contentsline {section}{\numberline {45.3}Disagreeing - Widersprechen}{146}{section.45.3}%
+\contentsline {section}{\numberline {45.4}Expressing Options - Optionen zeigen}{146}{section.45.4}%
+\contentsline {section}{\numberline {45.5}Reason and Cause - Begründung}{147}{section.45.5}%
+\contentsline {section}{\numberline {45.6}Contrast and Concession - Gegensatz}{147}{section.45.6}%
+\contentsline {section}{\numberline {45.7}Time Expressions - Zeitangaben}{148}{section.45.7}%
+\contentsline {section}{\numberline {45.8}Adding Information - Informationen hinzufügen}{148}{section.45.8}%
+\contentsline {section}{\numberline {45.9}Consequences and Results - Folgen und Ergebnisse}{149}{section.45.9}%
+\contentsline {section}{\numberline {45.10}Expressing Certainty/Uncertainty - Gewissheit/Unsicherheit}{149}{section.45.10}%
+\contentsline {chapter}{\numberline {46}Complete Noun Guide: der, die, das}{151}{chapter.46}%
+\contentsline {section}{\numberline {46.1}Maskulin - der (m)}{151}{section.46.1}%
+\contentsline {section}{\numberline {46.2}Feminin - die (f)}{152}{section.46.2}%
+\contentsline {section}{\numberline {46.3}Neutral - das (n)}{154}{section.46.3}%
+\contentsline {section}{\numberline {46.4}Important Irregular Plurals}{156}{section.46.4}%
 \contentsfinish 
