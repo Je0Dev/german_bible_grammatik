@@ -19,7 +19,8 @@ jobs:
     
     - name: Compile LaTeX
       run: |
-        cd grammatik_book
+        ls -la
+        pwd
         pdflatex -interaction=batchmode master.tex
         pdflatex -interaction=batchmode master.tex
         pdflatex -interaction=batchmode master.tex
@@ -27,7 +28,7 @@ jobs:
     
     - name: Create viewer HTML with PDF.js
       run: |
-        cat > grammatik_book/index.html << 'HTMLEOF'
+        cat > index.html << 'HTMLEOF'
         <!DOCTYPE html>
         <html lang="de">
         <head>
@@ -169,7 +170,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: site
-        path: grammatik_book/
+        path: .
 
   deploy:
     needs: build
