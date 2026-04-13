@@ -11,30 +11,22 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
-\usepackage{tcolorbox}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{parskip}
 \usepackage{titletoc}
 \usepackage{multicol}
-\usepackage{blindtext}
 
 \geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
 
 \definecolor{primary}{RGB}{0, 51, 102}
 \definecolor{secondary}{RGB}{0, 102, 153}
 \definecolor{accent}{RGB}{200, 50, 50}
-\definecolor{lightgray}{RGB}{245, 245, 245}
-\definecolor{solbg}{RGB}{240, 255, 240}
 \definecolor{a1color}{RGB}{34, 139, 34}
 \definecolor{a2color}{RGB}{0, 102, 204}
 \definecolor{b1color}{RGB}{204, 102, 0}
 \definecolor{b2color}{RGB}{153, 0, 153}
 \definecolor{c1color}{RGB}{200, 0, 0}
-\definecolor{bluebox}{RGB}{230, 240, 255}
-\definecolor{greenbox}{RGB}{230, 255, 240}
-\definecolor{yellowbox}{RGB}{255, 250, 230}
-\definecolor{redbox}{RGB}{255, 240, 240}
 
 \hypersetup{
     colorlinks=true,
@@ -46,146 +38,110 @@
 }
 
 \makeatletter
-\newcommand\fmtcolorbox[1]{%
-  \@ifnextchar[%]
-    {\@fmtcolorbox{#1}}%
-    {\@fmtcolorbox{#1}[o]}%
-}
-\def\@fmtcolorbox#1[#2]#3{%
-  \newtcolorbox{mybox}[1]{colframe=#1,colback=#3,arc=0mm,outer arc=0mm,
-    boxsep=0mm,left=3pt,right=3pt,top=3pt,bottom=3pt,before skip=0mm,after skip=0mm}%
-  \begin{mybox}{}%
-}
-\makeatother
-
-\newtcolorbox{infobox}[1]{colframe=primary,colback=bluebox,arc=3mm,rounded all,
-    boxsep=5mm,left=5pt,right=5pt,top=5pt,bottom=5pt,
-    fonttitle=\bfseries, title={#1}}
-
-\newtcolorbox{warnbox}[1]{colframe=accent,colback=redbox,arc=3mm,rounded all,
-    boxsep=5mm,left=5pt,right=5pt,top=5pt,bottom=5pt,
-    fonttitle=\bfseries, title={#1}}
-
-\newtcolorbox{tippbox}[1]{colframe=b1color,colback=yellowbox,arc=3mm,rounded all,
-    boxsep=5mm,left=5pt,right=5pt,top=5pt,bottom=5pt,
-    fonttitle=\bfseries, title={#1}}
-
-\newtcolorbox{levelbox}[1]{colframe=a1color,colback=greenbox,arc=3mm,rounded all,
-    boxsep=5mm,left=5pt,right=5pt,top=5pt,bottom=5pt,
-    fonttitle=\bfseries, title={#1}}
-
-\makeatletter
 \newcommand{\chapterend}{\vfill\pagebreak}
 \makeatother
 
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\textit{Deutsche Grammatik A1-C}}
-\lhead{George Mastro}
-\rfoot{Seite \thepage}
+\lhead{George Mastro / github.com/Je0Dev}
+\rfoot{Seite \thepage\\\textit{Copyright © 2026}}
 \fancypagestyle{plain}{\rfoot{Seite \thepage}}
 
-\title{\textbf{\Huge Deutsche Grammatik}\\ \Large Kompendium A1-C\\ \small Basierend auf Grammatik aktiv, Lehr- und Übungsbuch, B-Grammatik}
+\title{\textbf{\Huge Deutsche Grammatik}\\
+\Large Kompendium A1-C\\
+\textit{Von A1 bis C1-Niveau}}
 \author{George Mastro}
 \date{April 2026}
 
 \begin{document}
 
-\pdfbookmark[1]{Titelseite}{title}
 \maketitle
 \thispagestyle{empty}
-\vspace{2cm}
+\vspace{1cm}
+\begin{center}
+\color{primary}\textbf{Github: github.com/Je0Dev}\\[0.5cm]
+\color{accent}\textbf{Copyright © 2026 - Alle Rechte vorbehalten}\\[1cm]
+\textit{Quelle: Grammatik aktiv, B-Grammatik, Lehr- und Übungsbuch, Lingolia}
+\end{center}
+\newpage
 
 \begin{center}
-\textbf{\LARGE Inhaltsverzeichnis mit Links}\\[1cm]
+\textbf{\LARGE Inhaltsverzeichnis}\\[0.5cm]
 \tableofcontents
 \end{center}
-
-\newpage
-\thispagestyle{empty}
-\quad
 \newpage
 
 \frontmatter
 \chapter{Einleitung}
-Dieses Grammatikwerk bietet eine vollständige Referenz der deutschen Grammatik von A1 bis C1-Niveau. Die Inhalte wurden aus drei Hauptwerken zusammengestellt:
+Dieses umfassende Grammatikwerk bietet eine vollständige Referenz von A1 bis C1-Niveau basierend auf folgenden Werken:
 
 \section{Referenzwerke}
-\begin{enumerate}
-    \item \textbf{Grammatik aktiv B1+/B2/C1} - Übungsbuch mit theoretischen Erklärungen und praktischen Übungen
-    \item \textbf{Lehr- und Übungsbuch der deutschen Grammatik} - Umfassendes Nachschlagewerk für Fortgeschrittene
-    \item \textbf{B-Grammatik} - Didaktisch aufbereitete Grammatik für den Unterricht
-\end{enumerate}
-
-\section{Aufbau}
-Das Werk ist nach grammatischen Kategorien organisiert:
 \begin{itemize}
-    \item \textbf{Teil I: Das Nomen} - Deklination, Artikel, N-Deklination
-    \item \textbf{Teil II: Das Verb} - Zeitformen, Modalverben, Konjugation
-    \item \textbf{Teil III: Syntax} - Satzbau, Nebensätze, Passiv
-    \item \textbf{Teil IV: Präpositionen}
-    \item \textbf{Teil V: Adjektive und Partikeln}
-    \item \textbf{Teil VI: Ergänzungen}
-    \item \textbf{Teil VII: Anhang}
+    \item Grammatik aktiv B1+/B2/C1 - Jin/Voß - Cornelsen
+    \item Lehr- und Übungsbuch der deutschen Grammatik - Dreyer/Schmitt
+    \item B-Grammatik - Buscha/Szita - Klett
+    \item Lingolia - deutsch.lingolia.com/de/grammatik
+    \item SSM Training Materialien
 \end{itemize}
 
-\section{Legende}
+\section{Legende - CEFR Niveaus}
 \begin{itemize}
-    \item \textcolor{a1color}{\textbf{A1}} - Grundstufe
-    \item \textcolor{a2color}{\textbf{A2}} - Grundstufe II
-    \item \textcolor{b1color}{\textbf{B1}} - Mittelstufe
-    \item \textcolor{b2color}{\textbf{B2}} - Mittelstufe II
-    \item \textcolor{c1color}{\textbf{C1}} - Oberstufe
+    \item \textcolor{a1color}{\textbf{A1}} - Grundstufe I (Anfänger)
+    \item \textcolor{a2color}{\textbf{A2}} - Grundstufe II (Elementar)
+    \item \textcolor{b1color}{\textbf{B1}} - Mittelstufe (Fortgeschritten)
+    \item \textcolor{b2color}{\textbf{B2}} - Mittelstufe II (Oberfortgeschritten)
+    \item \textcolor{c1color}{\textbf{C1}} - Oberstufe (Advanced)
 \end{itemize}
 
-\section{Navigationshilfen}
-\begin{itemize}
-    \item Klicken Sie auf Kapitelüberschriften im Inhaltsverzeichnis, um direkt zum Thema zu springen
-    \item Im PDF: Verwenden Sie die Seitennavigation oder Lesezeichen
-    \item Rückverweise: \hyperlink{cha:Deklination}{Zurück zum Anfang}
-\end{itemize}
+\bigskip
+\noindent\textbf{Autor:} George Mastro\\
+\textbf{GitHub:} github.com/Je0Dev\\
+\textbf{Copyright:} © 2026 - Alle Rechte vorbehalten
 
 \mainmatter
 
-\part{Das Nomen und seine Begleiter}
-\pdfbookmark[0]{Teil I: Das Nomen}{part1}
+\part{A1-A2: Grundlagen}
+\input{tex/input/grammatik/a1/01_grundlagen}
+
+\part{B1: Mittelstufe}
+\input{tex/input/grammatik/b1b2/01_mittelstufe}
 \input{tex/input/grammatik/nomen/01_deklination}
 \input{tex/input/grammatik/nomen/02_artikel}
 \input{tex/input/grammatik/nomen/03_n_deklination}
 \input{tex/input/grammatik/nomen/04_nomenverb}
-
-\part{Das Verb}
-\pdfbookmark[0]{Teil II: Das Verb}{part2}
 \input{tex/input/grammatik/verb/01_zeitformen}
 \input{tex/input/grammatik/verb/02_modalverben}
 \input{tex/input/grammatik/verb/03_reflexiv}
+
+\part{B2-C1: Fortgeschritten}
+\input{tex/input/grammatik/c1/01_oberstufe}
 \input{tex/input/grammatik/verb/04_konjunktiv}
 \input{tex/input/grammatik/verb/05_fvg}
-
-\part{Satzbau und Syntax}
-\pdfbookmark[0]{Teil III: Syntax}{part3}
+\input{tex/input/grammatik/verb/06_reflexiv_erweitert}
+\input{tex/input/grammatik/verb/07_verb_objekte}
 \input{tex/input/grammatik/syntax/01_satzbau}
 \input{tex/input/grammatik/syntax/02_nebensaetze}
 \input{tex/input/grammatik/syntax/03_passiv}
 \input{tex/input/grammatik/syntax/04_relativ}
 \input{tex/input/grammatik/syntax/05_nominalstil}
-
-\part{Präpositionen}
-\pdfbookmark[0]{Teil IV: Präpositionen}{part4}
 \input{tex/input/grammatik/praepositionen/01_praepositionen}
-
-\part{Adjektive und Partikeln}
-\pdfbookmark[0]{Teil V: Adjektive}{part5}
 \input{tex/input/grammatik/adjektive/01_adjektive}
 \input{tex/input/grammatik/partikeln/01_partikeln}
-
-\part{Ergänzungen}
-\pdfbookmark[0]{Teil VI: Ergänzungen}{part6}
 \input{tex/input/grammatik/sonstiges/01_wortstellung}
 \input{tex/input/grammatik/sonstiges/02_stolpersteine}
 
-\part{Anhang}
-\pdfbookmark[0]{Teil VII: Anhang}{part7}
+\part{Anhang und Referenz}
 \input{tex/input/grammatik/sonstiges/03_anhang}
+\input{tex/input/grammatik/sonstiges/04_meinungen}
+\input{tex/input/grammatik/sonstiges/05_nomen_guide}
+
+\backmatter
+\begin{center}
+\vspace{2cm}
+\color{primary}\textbf{- Ende des Werkes -}\\[1cm]
+\color{accent}\textbf{Copyright © 2026 - George Mastro}\\[0.5cm]
+\textbf{GitHub: github.com/Je0Dev}
+\end{center}
 
 \end{document}

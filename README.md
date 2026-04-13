@@ -11,15 +11,18 @@ grammatik_book/
 ├── tex/
 │   └── input/
 │       └── grammatik/
-│           ├── nomen/           # Das Nomen und seine Begleiter
-│           ├── verb/            # Das Verb
-│           ├── syntax/          # Satzbau und Syntax
-│           ├── praepositionen/  # Präpositionen
-│           ├── adjektive/       # Adjektive
-│           ├── partikeln/       # Partikeln
-│           └── sonstiges/      # Ergänzungen und Anhang
+│           ├── a1/             # A1 Grundlagen
+│           ├── b1b2/           # B1-B2 Mittelstufe
+│           ├── c1/             # C1 Oberstufe
+│           ├── nomen/          # Das Nomen
+│           ├── verb/           # Das Verb (inkl. Verben mit Objekten)
+│           ├── syntax/        # Satzbau und Syntax
+│           ├── praepositionen/ # Präpositionen
+│           ├── adjektive/     # Adjektive
+│           ├── partikeln/      # Partikeln
+│           └── sonstiges/    # Ergänzungen, Meinungen, Nomen-Guide
 └── output/
-    └── master.pdf         # Kompiliertes PDF
+    └── master.pdf         # Kompiliertes PDF (472KB)
 ```
 
 ## Verwendung
@@ -28,72 +31,41 @@ grammatik_book/
 
 ```bash
 cd grammatik_book
-pdflatex -interaction=batchmode master.tex
+pdflatex master.tex
 mv master.pdf output/
 ```
 
-Das PDF befindet sich dann in `output/master.pdf`.
+### Inhaltsübersicht
 
-### PDF mit Hyperlinks
+Das Dokument enthält:
 
-Das erstellte PDF enthält:
-- Hyperlinks im Inhaltsverzeichnis
-- Verweise zwischen Kapiteln
-- Klickbare Querverweise
-
-## Dokumentstruktur
-
-Das Dokument ist in 7 Hauptteile gegliedert:
-
-1. **Teil I: Das Nomen** - Deklination, Artikel, N-Deklination
-2. **Teil II: Das Verb** - Zeitformen, Modalverben, Konjunktiv
-3. **Teil III: Syntax** - Satzbau, Nebensätze, Passiv
-4. **Teil IV: Präpositionen** - Wechselpräpositionen, Kasuspräpositionen
-5. **Teil V: Adjektive und Partikeln** - Deklination, Steigerung, Partikeln
-6. **Teil VI: Ergänzungen** - Wortstellung, Stolpersteine
-7. **Anhang** - Konjugationstabellen, reflexive Verben, Nomenlisten, nützliche Sätze
+- **A1-A2**: Grundlagen (Wortstellung, Präsens, Perfekt, Artikel)
+- **B1**: Mittelstufe (Nebensätze, Passiv, Konjunktiv)
+- **B2-C1**: Fortgeschritten (Nominalstil, Partizipien, komplexe Sätze)
+- **Anhang**: Konjugationstabellen, Meinungsäußerungen, Nomen-Guide (der/die/das), Verben mit Kasus
 
 ## Hauptmerkmale
 
-### Farbige Boxen
-- ⬜ Blaue Box: Informationen
-- ⬜ Rote Box: Warnungen
-- ⬜ Gelbe Box: Tipps
-- ⬜ Grüne Box: Level-Angaben
-
-### Übungen
-Zahlreiche Übungen mit Lösungen:
-- Lückentexte
-- Umformungsübungen  
-- Kasusbestimmung
-- Satzbau
-
-### Anhang
-- Vollständige Konjugationstabellen
-- reflexive Verben mit Präpositionen
-- Nomenlisten (m/f/n mit Plural)
-- Nützliche Sätze für Meinungen und Optionen
-- Nomen/Adjektiv + Präposition Verbindungen
-
-## CEFR-Niveaus
-
-Das Werk deckt alle Niveaus ab:
-- **A1** - Grundstufe I
-- **A2** - Grundstufe II  
-- **B1** - Mittelstufe
-- **B2** - Mittelstufe II
-- **C1** - Oberstufe
+- Farbcodierte CEFR-Niveaus (A1-C1)
+- Umfangreiche Übungen mit Lösungen
+- Konjugationstabellen
+- Nomen-Guide mit Pluralformen
+- Verben mit Akkusativ, Dativ und beiden Fällen
+- SSM-style Ausdruckssammlung für Meinungen und Argumente
 
 ## Quellen
 
-- **Grammatik aktiv B1+/B2/C1** (Jin/Voß) - Cornelsen
-- **Lehr- und Übungsbuch der deutschen Grammatik** (Dreyer/Schmitt) - Hueber
-- **B-Grammatik** (Buscha/Szita) - Klett
-- **Lingolia** - https://deutsch.lingolia.com/de/grammatik
+- Grammatik aktiv B1+/B2/C1 (Jin/Voß) - Cornelsen
+- Lehr- und Übungsbuch der deutschen Grammatik (Dreyer/Schmitt)
+- B-Grammatik (Buscha/Szita) - Klett
+- Lingolia - deutsch.lingolia.com/de/grammatik
+- SSM Training Materialien
 
-## Lizenz
+## Copyright
 
-Dieses Projekt ist für Bildungszwecke erstellt.
+Copyright © 2026 - George Mastro
+
+GitHub: github.com/Je0Dev
 
 ---
 **Hinweis**: Dieses Werk dient als Ergänzung zum Sprachunterricht.
