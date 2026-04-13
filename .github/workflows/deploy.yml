@@ -15,143 +15,155 @@ jobs:
     - name: Install TeX Live
       run: |
         sudo apt-get update
-        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-lang-german
+        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-lang-german texlive-pictures texlive-science
     
     - name: Compile LaTeX
       run: |
         cd grammatik_book
-        pdflatex -interaction=nonstopmode master.tex
-        pdflatex -interaction=nonstopmode master.tex
+        pdflatex -interaction=batchmode master.tex
+        pdflatex -interaction=batchmode master.tex
+        pdflatex -interaction=batchmode master.tex
+        ls -la master.pdf
     
-    - name: Create index.html
+    - name: Create viewer HTML with PDF.js
       run: |
-        cat > grammatik_book/index.html << 'EOF'
+        cat > grammatik_book/index.html << 'HTMLEOF'
         <!DOCTYPE html>
         <html lang="de">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Deutsche Grammatik A1-C2 - Kompendium</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+            <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
             <style>
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    max-width: 800px;
-                    margin: 0 auto;
-                    padding: 20px;
-                    background: #f5f5f5;
-                }
-                .header {
-                    background: linear-gradient(135deg, #003366, #006699);
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body { font-family: 'Segoe UI', sans-serif; display: flex; height: 100vh; background: #1a1a1a; }
+                #sidebar {
+                    width: 280px;
+                    background: #2d2d2d;
                     color: white;
-                    padding: 40px;
-                    border-radius: 10px;
-                    text-align: center;
-                    margin-bottom: 30px;
-                }
-                h1 { margin: 0; font-size: 2.5em; }
-                .subtitle { font-size: 1.2em; opacity: 0.9; }
-                .description {
-                    background: white;
                     padding: 20px;
-                    border-radius: 10px;
-                    margin-bottom: 20px;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                    overflow-y: auto;
+                    border-right: 1px solid #444;
                 }
-                .download-btn {
-                    display: inline-block;
-                    background: #cc3333;
+                #sidebar h2 { font-size: 1.3em; margin-bottom: 15px; color: #4a9eff; }
+                #sidebar ul { list-style: none; }
+                #sidebar li { padding: 8px 10px; cursor: pointer; border-radius: 4px; margin-bottom: 3px; }
+                #sidebar li:hover { background: #404040; }
+                #sidebar li.active { background: #4a9eff; color: white; }
+                #main { flex: 1; display: flex; flex-direction: column; }
+                #header {
+                    background: #333;
+                    padding: 15px 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid #444;
+                }
+                #header h1 { color: white; font-size: 1.4em; }
+                .btn {
+                    background: #4a9eff;
                     color: white;
-                    padding: 15px 30px;
+                    padding: 10px 20px;
                     text-decoration: none;
                     border-radius: 5px;
-                    font-size: 1.2em;
-                    margin: 10px;
+                    font-size: 0.9em;
                 }
-                .download-btn:hover { background: #aa2222; }
-                .info-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 15px;
-                    margin-top: 20px;
+                #viewer-container { flex: 1; display: flex; justify-content: center; overflow: auto; padding: 20px; }
+                #pdf-viewer { max-width: 100%; height: 100%; }
+                .nav-btn {
+                    background: #444;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    margin: 0 5px;
                 }
-                .info-box {
-                    background: white;
-                    padding: 15px;
-                    border-radius: 8px;
-                    text-align: center;
+                .nav-btn:hover { background: #555; }
+                .page-info { color: #aaa; margin: 0 15px; }
+                #loading { 
+                    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    color: white; font-size: 1.5em;
                 }
-                .info-box h3 { color: #003366; margin: 0 0 10px 0; }
-                .footer {
-                    text-align: center;
-                    margin-top: 30px;
-                    color: #666;
-                }
-                a { color: #006699; }
             </style>
         </head>
         <body>
-            <div class="header">
-                <h1>📘 Deutsche Grammatik</h1>
-                <p class="subtitle">Umfassendes Grammatik-Kompendium von A1 bis C2</p>
-            </div>
-            
-            <div class="description">
-                <h2>Willkommen zur Deutschen Grammatik Referenz</h2>
-                <p>Dieses umfassende Grammatikwerk bietet eine vollständige Referenz von A1 bis C2-Niveau basierend auf folgenden Werken:</p>
-                <ul>
-                    <li><strong>Grammatik aktiv B1+/B2/C1</strong> - Jin/Voß - Cornelsen</li>
-                    <li><strong>Lehr- und Übungsbuch der deutschen Grammatik</strong> - Dreyer/Schmitt</li>
-                    <li><strong>B-Grammatik</strong> - Buscha/Szita - Klett</li>
-                    <li><strong>Lingolia</strong> - deutsch.lingolia.com/de/grammatik</li>
+            <div id="sidebar">
+                <h2>📘 Inhaltsverzeichnis</h2>
+                <ul id="toc">
+                    <li onclick="goToPage(1)" class="active">Titelseite</li>
+                    <li onclick="goToPage(3)">Inhaltsverzeichnis</li>
+                    <li onclick="goToPage(5)">Einleitung</li>
+                    <li onclick="goToPage(7)">A1-A2: Grundlagen</li>
+                    <li onclick="goToPage(25)">B1: Mittelstufe</li>
+                    <li onclick="goToPage(45)">Nomen</li>
+                    <li onclick="goToPage(65)">Verben</li>
+                    <li onclick="goToPage(95)">Syntax</li>
+                    <li onclick="goToPage(115)">C1: Oberstufe</li>
+                    <li onclick="goToPage(125)">C2: Fortgeschritten</li>
+                    <li onclick="goToPage(135)">Business German</li>
+                    <li onclick="goToPage(155)">Idiome & Redewendungen</li>
+                    <li onclick="goToPage(165)">Phrasal Verbs</li>
+                    <li onclick="goToPage(171)">Tests & Flashcards</li>
+                    <li onclick="goToPage(175)">Index & Glossar</li>
+                    <li style="margin-top: 30px; border-top: 1px solid #555; padding-top: 15px;">
+                        <a href="master.pdf" class="btn" style="display:block;text-align:center;">📥 PDF Herunterladen</a>
+                    </li>
                 </ul>
             </div>
-            
-            <div style="text-align: center;">
-                <a href="master.pdf" class="download-btn">📥 PDF Herunterladen</a>
-            </div>
-            
-            <div class="info-grid">
-                <div class="info-box">
-                    <h3>📄 Umfang</h3>
-                    <p>171 Seiten</p>
+            <div id="main">
+                <div id="header">
+                    <h1>📘 Deutsche Grammatik A1-C2</h1>
+                    <div>
+                        <button class="nav-btn" onclick="prevPage()">◀</button>
+                        <span class="page-info">Seite <span id="page-num">1</span> von <span id="total-pages">--</span></span>
+                        <button class="nav-btn" onclick="nextPage()">▶</button>
+                    </div>
                 </div>
-                <div class="info-box">
-                    <h3>📅 Version</h3>
-                    <p>April 2026</p>
-                </div>
-                <div class="info-box">
-                    <h3>👤 Autor</h3>
-                    <p>George Mastro</p>
-                </div>
-                <div class="info-box">
-                    <h3>🌐 GitHub</h3>
-                    <p><a href="https://github.com/Je0Dev/german_bible_grammatik">github.com/Je0Dev</a></p>
+                <div id="viewer-container">
+                    <div id="loading">Lade PDF...</div>
+                    <canvas id="pdf-viewer"></canvas>
                 </div>
             </div>
-            
-            <div class="description" style="margin-top: 30px;">
-                <h3>Inhaltsübersicht</h3>
-                <ul>
-                    <li><strong>A1-A2:</strong> Grundlagen, Präsens, Perfekt, Artikel, Plural</li>
-                    <li><strong>B1:</strong> Mittelstufe, Konjunktiv II, Relativsätze</li>
-                    <li><strong>B2-C1:</strong> Fortgeschritten, Konjunktiv I, Passiv, Nominalstil</li>
-                    <li><strong>C2:</strong> Spezialthemen, stilistische Feinheiten</li>
-                    <li><strong>Business:</strong> Geschäftskommunikation, Bewerbung</li>
-                    <li><strong>Academic:</strong> Wissenschaftssprache, Präsentationen</li>
-                    <li><strong>Idiome:</strong> Redewendungen, falsche Freunde</li>
-                    <li><strong>Phrasal Verbs:</strong> Partikelverben</li>
-                    <li><strong>Tests:</strong> Selbsttests A1-C2 mit Lösungen</li>
-                    <li><strong>Index:</strong> Stichwortverzeichnis & Glossar</li>
-                </ul>
-            </div>
-            
-            <div class="footer">
-                <p>© 2026 George Mastro - Alle Rechte vorbehalten</p>
-                <p>Quellen: Grammatik aktiv, B-Grammatik, Lehr- und Übungsbuch, Lingolia</p>
-            </div>
+            <script>
+                let pdfDoc = null;
+                let pageNum = 1;
+                const canvas = document.getElementById('pdf-viewer');
+                const ctx = canvas.getContext('2d');
+
+                pdfjsLib.getDocument('master.pdf').promise.then(function(pdf) {
+                    pdfDoc = pdf;
+                    document.getElementById('total-pages').textContent = pdf.numPages;
+                    document.getElementById('loading').style.display = 'none';
+                    renderPage(pageNum);
+                });
+
+                function renderPage(num) {
+                    pdfDoc.getPage(num).then(function(page) {
+                        const viewport = page.getViewport({scale: 1.5});
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        const renderContext = { canvasContext: ctx, viewport: viewport };
+                        page.render(renderContext);
+                        document.getElementById('page-num').textContent = num;
+                        document.querySelectorAll('#toc li').forEach(li => li.classList.remove('active'));
+                    });
+                }
+
+                function prevPage() { if (pageNum > 1) { pageNum--; renderPage(pageNum); } }
+                function nextPage() { if (pageNum < pdfDoc.numPages) { pageNum++; renderPage(pageNum); } }
+                function goToPage(num) { pageNum = num; renderPage(pageNum); }
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'ArrowLeft') prevPage();
+                    if (e.key === 'ArrowRight') nextPage();
+                });
+            </script>
         </body>
         </html>
-        EOF
+        HTMLEOF
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
