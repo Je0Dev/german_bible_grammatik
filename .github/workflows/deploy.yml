@@ -2,185 +2,33 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Install TeX Live
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y --no-install-recommends \
-          texlive-latex-base \
-          texlive-latex-extra \
-          texlive-lang-german \
-          texlive-pictures \
-          texlive-science \
-          texlive-fonts-extra \
-          texlive-bibtex-extra
-        which pdflatex
-        pdflatex --version
-    
-    - name: Compile LaTeX
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "Files in current dir:"
-        ls -la
-        echo "---"
-        pdflatex -interaction=nonstopmode master.tex 2>&1 | head -100
-        echo "---"
-        ls -la master.pdf 2>&1 || echo "PDF not created"
-    
-    - name: Create viewer HTML with PDF.js
-      run: |
-        cat > index.html << 'HTMLEOF'
-        <!DOCTYPE html>
-        <html lang="de">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Deutsche Grammatik A1-C2 - Kompendium</title>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-            <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';</script>
-            <style>
-                * { margin: 0; padding: 0; box-sizing: border-box; }
-                body { font-family: 'Segoe UI', sans-serif; display: flex; height: 100vh; background: #1a1a1a; }
-                #sidebar {
-                    width: 280px;
-                    background: #2d2d2d;
-                    color: white;
-                    padding: 20px;
-                    overflow-y: auto;
-                    border-right: 1px solid #444;
-                }
-                #sidebar h2 { font-size: 1.3em; margin-bottom: 15px; color: #4a9eff; }
-                #sidebar ul { list-style: none; }
-                #sidebar li { padding: 8px 10px; cursor: pointer; border-radius: 4px; margin-bottom: 3px; }
-                #sidebar li:hover { background: #404040; }
-                #sidebar li.active { background: #4a9eff; color: white; }
-                #main { flex: 1; display: flex; flex-direction: column; }
-                #header {
-                    background: #333;
-                    padding: 15px 20px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    border-bottom: 1px solid #444;
-                }
-                #header h1 { color: white; font-size: 1.4em; }
-                .btn {
-                    background: #4a9eff;
-                    color: white;
-                    padding: 10px 20px;
-                    text-decoration: none;
-                    border-radius: 5px;
-                    font-size: 0.9em;
-                }
-                #viewer-container { flex: 1; display: flex; justify-content: center; overflow: auto; padding: 20px; }
-                #pdf-viewer { max-width: 100%; height: 100%; }
-                .nav-btn {
-                    background: #444;
-                    color: white;
-                    border: none;
-                    padding: 10px 15px;
-                    cursor: pointer;
-                    border-radius: 4px;
-                    margin: 0 5px;
-                }
-                .nav-btn:hover { background: #555; }
-                .page-info { color: #aaa; margin: 0 15px; }
-                #loading { 
-                    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                    color: white; font-size: 1.5em;
-                }
-            </style>
-        </head>
-        <body>
-            <div id="sidebar">
-                <h2>📘 Inhaltsverzeichnis</h2>
-                <ul id="toc">
-                    <li onclick="goToPage(1)" class="active">Titelseite</li>
-                    <li onclick="goToPage(3)">Inhaltsverzeichnis</li>
-                    <li onclick="goToPage(5)">Einleitung</li>
-                    <li onclick="goToPage(7)">A1-A2: Grundlagen</li>
-                    <li onclick="goToPage(25)">B1: Mittelstufe</li>
-                    <li onclick="goToPage(45)">Nomen</li>
-                    <li onclick="goToPage(65)">Verben</li>
-                    <li onclick="goToPage(95)">Syntax</li>
-                    <li onclick="goToPage(115)">C1: Oberstufe</li>
-                    <li onclick="goToPage(125)">C2: Fortgeschritten</li>
-                    <li onclick="goToPage(135)">Business German</li>
-                    <li onclick="goToPage(155)">Idiome & Redewendungen</li>
-                    <li onclick="goToPage(165)">Phrasal Verbs</li>
-                    <li onclick="goToPage(171)">Tests & Flashcards</li>
-                    <li onclick="goToPage(175)">Index & Glossar</li>
-                    <li style="margin-top: 30px; border-top: 1px solid #555; padding-top: 15px;">
-                        <a href="master.pdf" class="btn" style="display:block;text-align:center;">📥 PDF Herunterladen</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="main">
-                <div id="header">
-                    <h1>📘 Deutsche Grammatik A1-C2</h1>
-                    <div>
-                        <button class="nav-btn" onclick="prevPage()">◀</button>
-                        <span class="page-info">Seite <span id="page-num">1</span> von <span id="total-pages">--</span></span>
-                        <button class="nav-btn" onclick="nextPage()">▶</button>
-                    </div>
-                </div>
-                <div id="viewer-container">
-                    <div id="loading">Lade PDF...</div>
-                    <canvas id="pdf-viewer"></canvas>
-                </div>
-            </div>
-            <script>
-                let pdfDoc = null;
-                let pageNum = 1;
-                const canvas = document.getElementById('pdf-viewer');
-                const ctx = canvas.getContext('2d');
+      - uses: actions/checkout@v4
 
-                pdfjsLib.getDocument('master.pdf').promise.then(function(pdf) {
-                    pdfDoc = pdf;
-                    document.getElementById('total-pages').textContent = pdf.numPages;
-                    document.getElementById('loading').style.display = 'none';
-                    renderPage(pageNum);
-                });
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-extra texlive-lang-german texlive-pictures texlive-science texlive-fonts-extra
 
-                function renderPage(num) {
-                    pdfDoc.getPage(num).then(function(page) {
-                        const viewport = page.getViewport({scale: 1.5});
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        const renderContext = { canvasContext: ctx, viewport: viewport };
-                        page.render(renderContext);
-                        document.getElementById('page-num').textContent = num;
-                        document.querySelectorAll('#toc li').forEach(li => li.classList.remove('active'));
-                    });
-                }
+      - name: Compile LaTeX
+        run: |
+          pdflatex -interaction=nonstopmode master.tex
+          pdflatex -interaction=nonstopmode master.tex
+          pdflatex -interaction=nonstopmode master.tex
 
-                function prevPage() { if (pageNum > 1) { pageNum--; renderPage(pageNum); } }
-                function nextPage() { if (pageNum < pdfDoc.numPages) { pageNum++; renderPage(pageNum); } }
-                function goToPage(num) { pageNum = num; renderPage(pageNum); }
-                
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'ArrowLeft') prevPage();
-                    if (e.key === 'ArrowRight') nextPage();
-                });
-            </script>
-        </body>
-        </html>
-        HTMLEOF
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: site
-        path: .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: .
 
   deploy:
     needs: build
@@ -189,22 +37,21 @@ jobs:
       contents: write
       pages: write
       id-token: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+
     steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: site
-        path: .
-        
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: .
-        
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: .
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
